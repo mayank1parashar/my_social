@@ -19,10 +19,13 @@ def home():
 @app.route('/register', methods=['POST'])
 def register_user():
 
+# 1. Grab the JSON payload FIRST
+    data = request.get_json()
+
     if not data:
         return jsonify({"error": "Invalid JSON body"}), 400
 
-    # 1. Grab the JSON data sent by the client
+    # . Grab the JSON data sent by the client
     username = data.get('username')
     email = data.get('email')
     # Providing a default password hash for simple registration flows
