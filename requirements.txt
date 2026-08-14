@@ -5,4 +5,5 @@ bcrypt
 PyJWT
 Pillow
 python-dotenv
-eventlet
+# eventlet is excluded for serverless deployments; enable Socket.IO on a container host if needed
+# Add `eventlet` back when running in a long-lived server and set ENABLE_SOCKETIO=1
