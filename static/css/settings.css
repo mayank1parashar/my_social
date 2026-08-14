@@ -1,0 +1,96 @@
+/* ═══════════════════════════════════════════════════════════
+   Settings Page (Premium Edition)
+   ═══════════════════════════════════════════════════════════ */
+
+.settings-page h1 {
+    font-size: 26px; font-weight: 800; margin-bottom: 28px;
+    letter-spacing: -0.5px;
+    background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+.settings-section {
+    background: var(--glass);
+    backdrop-filter: blur(20px) saturate(1.2);
+    -webkit-backdrop-filter: blur(20px) saturate(1.2);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    margin-bottom: 18px; overflow: hidden;
+    box-shadow: var(--shadow-sm), var(--shadow-inset);
+    transition: all var(--transition);
+}
+.settings-section:hover {
+    border-color: rgba(139,92,246,0.08);
+}
+
+.settings-section-title {
+    padding: 18px 22px 10px; font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1.2px; color: var(--text-muted);
+}
+
+.settings-item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 15px 22px;
+    transition: all var(--transition); cursor: pointer;
+    position: relative;
+}
+.settings-item::after {
+    content: ''; position: absolute; bottom: 0; left: 22px; right: 22px;
+    height: 1px; background: var(--glass-border); opacity: 0.5;
+}
+.settings-item:last-child::after { display: none; }
+.settings-item:hover {
+    background: var(--surface-hover);
+    padding-left: 26px;
+}
+.settings-item svg {
+    width: 20px; height: 20px; color: var(--text-secondary); flex-shrink: 0;
+    transition: color var(--transition);
+}
+.settings-item:hover svg { color: var(--accent); }
+.settings-item .settings-item-info { flex: 1; }
+.settings-item .settings-item-label { font-size: 15px; font-weight: 500; }
+.settings-item .settings-item-desc {
+    font-size: 12px; color: var(--text-muted); margin-top: 3px;
+    line-height: 1.35;
+}
+.settings-item.danger { color: var(--danger); }
+.settings-item.danger svg { color: var(--danger); }
+.settings-item.danger:hover {
+    background: rgba(239,68,68,0.06);
+    padding-left: 26px;
+}
+
+/* ─── Toggle Switch ───────────────────────────────────────── */
+.toggle-switch { position: relative; width: 50px; height: 28px; flex-shrink: 0; }
+.toggle-switch input { display: none; }
+.toggle-slider {
+    position: absolute; inset: 0;
+    background: var(--surface-active);
+    border-radius: 14px; cursor: pointer;
+    transition: all 0.35s cubic-bezier(.4,0,.2,1);
+    border: 1px solid var(--glass-border);
+}
+.toggle-slider::before {
+    content: ''; position: absolute;
+    width: 22px; height: 22px; border-radius: 50%;
+    background: #fff; top: 2px; left: 2px;
+    transition: all 0.35s cubic-bezier(.175,.885,.32,1.275);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+.toggle-switch input:checked + .toggle-slider {
+    background: var(--gradient);
+    border-color: transparent;
+    box-shadow: 0 0 12px rgba(139,92,246,0.25);
+}
+.toggle-switch input:checked + .toggle-slider::before {
+    transform: translateX(22px);
+    box-shadow: 0 1px 4px rgba(139,92,246,0.3);
+}
+
+.settings-form {
+    padding: 22px; display: flex; flex-direction: column; gap: 18px;
+}
+.settings-version {
+    text-align: center; padding: 28px; color: var(--text-muted); font-size: 12px;
+    letter-spacing: 0.5px;
+}
