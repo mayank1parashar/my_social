@@ -1,0 +1,47 @@
+/* Stories Bar */
+.stories-bar { display:flex; gap:16px; padding:16px 4px; overflow-x:auto; scrollbar-width:none; margin-bottom:20px; }
+.stories-bar::-webkit-scrollbar { display:none; }
+.story-bubble { display:flex; flex-direction:column; align-items:center; gap:6px; cursor:pointer; flex-shrink:0; min-width:72px; }
+.story-ring { width:68px; height:68px; border-radius:50%; padding:3px; background:linear-gradient(135deg, #f59e0b, #ec4899, #8b5cf6); position:relative; }
+.story-ring.viewed { background:var(--glass-border); }
+.story-ring.add-story { background:none; border:2px dashed var(--glass-border); }
+.story-ring img, .story-ring .avatar { width:100%; height:100%; border-radius:50%; object-fit:cover; border:3px solid var(--bg-primary); }
+.story-ring .add-icon { position:absolute; bottom:-2px; right:-2px; width:22px; height:22px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:700; border:2px solid var(--bg-primary); }
+.story-bubble .story-username { font-size:11px; color:var(--text-secondary); max-width:68px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; text-align:center; }
+
+/* Story Viewer - Fullscreen overlay */
+.story-viewer { position:fixed; inset:0; z-index:2000; background:#000; display:flex; align-items:center; justify-content:center; }
+.story-viewer-content { position:relative; width:100%; max-width:420px; height:100%; max-height:750px; border-radius:16px; overflow:hidden; }
+.story-viewer-bg { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
+.story-viewer-bg img { width:100%; height:100%; object-fit:cover; }
+.story-viewer-bg .story-text-content { padding:32px; font-size:22px; font-weight:700; color:#fff; text-align:center; text-shadow:0 2px 8px rgba(0,0,0,0.3); }
+.story-progress { position:absolute; top:8px; left:8px; right:8px; display:flex; gap:4px; z-index:10; }
+.story-progress-bar { flex:1; height:3px; border-radius:2px; background:rgba(255,255,255,0.3); overflow:hidden; }
+.story-progress-bar .fill { height:100%; background:#fff; border-radius:2px; transition:width 0.1s linear; }
+.story-progress-bar.active .fill { width:0%; animation:storyProgress 5s linear forwards; }
+.story-progress-bar.done .fill { width:100%; }
+@keyframes storyProgress { from{width:0%} to{width:100%} }
+.story-viewer-header { position:absolute; top:16px; left:12px; right:12px; display:flex; align-items:center; gap:10px; z-index:10; }
+.story-viewer-header .story-v-avatar { width:36px; height:36px; border-radius:50%; object-fit:cover; }
+.story-viewer-header .story-v-name { font-size:14px; font-weight:600; color:#fff; flex:1; }
+.story-viewer-header .story-v-time { font-size:12px; color:rgba(255,255,255,0.7); }
+.story-viewer-close { width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,0.2); color:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer; }
+.story-viewer-close svg { width:18px; height:18px; }
+.story-viewer-nav { position:absolute; inset:0; display:flex; z-index:5; }
+.story-viewer-nav .story-prev, .story-viewer-nav .story-next { flex:1; cursor:pointer; }
+.story-viewer-count { position:absolute; bottom:20px; left:0; right:0; text-align:center; color:rgba(255,255,255,0.7); font-size:12px; z-index:10; }
+
+/* Story Create Modal */
+.story-create-modal { position:fixed; inset:0; z-index:1500; background:rgba(0,0,0,0.7); display:flex; align-items:center; justify-content:center; padding:16px; backdrop-filter:blur(8px); }
+.story-create-card { width:100%; max-width:400px; border-radius:var(--radius-xl); overflow:hidden; }
+.story-create-preview { width:100%; aspect-ratio:9/16; max-height:500px; display:flex; align-items:center; justify-content:center; padding:32px; position:relative; }
+.story-create-preview textarea { background:transparent; border:none; outline:none; color:#fff; font-size:24px; font-weight:700; text-align:center; width:100%; resize:none; text-shadow:0 2px 8px rgba(0,0,0,0.3); }
+.story-create-preview textarea::placeholder { color:rgba(255,255,255,0.5); }
+.story-gradients { display:flex; gap:8px; padding:12px 16px; background:var(--bg-secondary); justify-content:center; }
+.story-gradient-btn { width:32px; height:32px; border-radius:50%; border:2px solid transparent; cursor:pointer; transition:all var(--transition); }
+.story-gradient-btn.active { border-color:#fff; transform:scale(1.15); }
+.story-create-actions { display:flex; gap:8px; padding:12px 16px; background:var(--bg-secondary); justify-content:flex-end; }
+
+@media (max-width:768px) {
+    .story-viewer-content { max-width:100%; max-height:100%; border-radius:0; }
+}
