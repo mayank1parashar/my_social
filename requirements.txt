@@ -1,9 +1,18 @@
-flask
-flask-socketio
-flask-cors
-bcrypt
-PyJWT
-Pillow
-python-dotenv
-# eventlet is excluded for serverless deployments; enable Socket.IO on a container host if needed
-# Add `eventlet` back when running in a long-lived server and set ENABLE_SOCKETIO=1
+bcrypt==5.0.0
+blinker==1.9.0
+click==8.4.2
+dnspython==2.8.0
+eventlet==0.41.1
+Flask==3.1.3
+flask-cors==6.0.5
+Flask-SocketIO==5.6.1
+greenlet==3.3.2
+itsdangerous==2.2.0
+Jinja2==3.1.6
+MarkupSafe==3.0.3
+pillow==12.3.0
+PyJWT==2.13.0
+python-dotenv==1.2.2
+python-engineio==4.13.4
+python-socketio==5.16.3
+Werkzeug==3.1.8
